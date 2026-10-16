@@ -1,0 +1,26 @@
+services:
+  database:
+    image: postgres:17
+    restart: always
+    environment:
+      POSTGRES_DB: ${DB_NAME}
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    ports:
+      - '5432:5432'
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+
+  app:
+    build: .
+    env_file:
+      - .env
+    depends_on:
+      - ${DB_HOST}
+    ports:
+      - '8000:8000'
+    volumes:
+      - .:/app
+
+volumes:
+  pg_data:

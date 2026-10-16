@@ -1,0 +1,13 @@
+[project]
+name = "lumminatech"
+version = "0.1.0"
+description = "Sistemas & Soluções digitais."
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "dependency-injector>=4.49.1",
+    "django>=6.1.2",
+    "django-ninja>=1.7.1",
+    "dotenv>=0.9.9",
+    "psycopg2-binary>=2.9.13",
+]
